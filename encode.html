@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENCODE</title>
+    <link rel="icon" href="favidon.png">
+    <link rel="stylesheet" href="encode.css">
+</head>
+<body>
+    <div class="box1">
+        <h6 id="tail">STEGANO.IO</h6>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+    <img src="favidon.png" alt="logo" id="logo">
+    <div class="box"></div>
+    <h1 id="head">ENCODE :</h1>
+    <p id="encodepara">To encode a message into an image, choose the image you want to use, enter your text and hit the <strong>Encode</strong> button.
+      Save the last image, it will contain your hidden message. 
+      Remember, the more text you want to hide, the larger the image has to be. In case you chose an image that is too small to hold your message you will be informed.</p>
+      <div class="display">
+      <form class="form">
+        <div class="form-group">
+          <input class="form-control" type="file" name="baseFile" onchange="previewEncodeImage()">
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control message" rows="3" placeholder="Enter your message here"></textarea>
+        </div>
+
+        <div class="form-group">
+          <button class="encode btn btn-default pull-right" onclick="encodeMessage()">Encode</button>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="error" style="display: none;"></div>
+    <div class="binary" style="display: none;">
+      <h3>Binary representation of your message</h3>
+      <textarea class="form-control-message" style="word-wrap:break-word;">
+      </textarea>
+    </div>
+    <div class="images" style="display: none;">
+      <div class="original" style="display: none;">
+        <h3>Original</h3>
+        <canvas></canvas>
+      </div>
+      <div class="nulled" style="display: none;">
+        <h3>Normalized</h3>
+        <canvas></canvas>
+      </div>
+      <div class="message" style="display: none;">
+        <h3>Message hidden in image (right click to save the image) </h3>
+        <canvas></canvas>
+      </div>
+    </div>
+    <div class="decode-button-container" style="text-align: center; margin-top: 20px;">
+      <a href="decode.html">
+          <button class="btn btn-primary" style="padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+           DECODE
+          </button>
+      </a>
+  </div>
+  <script>
+    function encodeMessage() {
+        // Encoding logic (from pro.js)
+
+        // Show the "Normalized" image
+        document.querySelector(".nulled").style.display = "block";
+
+        // Show the "DECODE" button after the Normalized image
+        document.getElementById("decodeBtn").style.display = "block";
+    }
+</script>
+</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="pro.js"></script>
+</body>
+</html>
